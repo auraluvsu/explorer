@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --color-base: #0f172a;
+  --color-panel: #1e293b;
+  --color-elevated: #243449;
+  --color-sky: #38bdf8;
+  --color-ok: #34d399;
+  --color-warn: #fbbf24;
+  --color-bad: #f87171;
+  --color-ink: #e2e8f0;
+  --color-muted: #94a3b8;
+  --color-line: #334155;
+}
+
+html, body, #root { height: 100%; }
+body {
+  background: var(--color-base);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 22px;
+  -webkit-font-smoothing: antialiased;
+}
+::selection { background: color-mix(in srgb, var(--color-sky) 35%, transparent); }
+.num { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.caption { font-size: 12px; line-height: 16px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
+
+* { scrollbar-width: thin; scrollbar-color: transparent transparent; }
+*:hover { scrollbar-color: var(--color-line) transparent; }
+
+:focus-visible { outline: 2px solid var(--color-sky); outline-offset: 2px; }
+
+input[type='range'].wslider {
+  -webkit-appearance: none; appearance: none; width: 100%; height: 20px; background: transparent; cursor: pointer;
+}
+.wslider::-webkit-slider-runnable-track {
+  height: 4px; border-radius: 2px;
+  background: linear-gradient(to right, var(--color-sky) var(--pct), var(--color-line) var(--pct));
+}
+.wslider::-moz-range-track { height: 4px; border-radius: 2px; background: var(--color-line); }
+.wslider::-moz-range-progress { height: 4px; border-radius: 2px; background: var(--color-sky); }
+.wslider::-webkit-slider-thumb {
+  -webkit-appearance: none; width: 14px; height: 14px; margin-top: -5px; border-radius: 50%;
+  background: var(--color-ink); border: 2px solid var(--color-sky); transition: transform .12s;
+}
+.wslider:hover::-webkit-slider-thumb, .wslider:active::-webkit-slider-thumb { transform: scale(1.2); }
+.wslider::-moz-range-thumb { width: 12px; height: 12px; border-radius: 50%; background: var(--color-ink); border: 2px solid var(--color-sky); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}
+@keyframes slide-in { from { transform: translateX(24px); opacity: 0 } to { transform: none; opacity: 1 } }
+.slide-in { animation: slide-in .2s ease-out; }

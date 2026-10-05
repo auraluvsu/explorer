@@ -1,0 +1,10 @@
+{
+  "description": "Explore, rank, and compare 20 online business ideas using customizable weighted criteria and interactive visualizations to find the best fit for your goals.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
